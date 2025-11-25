@@ -38,4 +38,10 @@ public abstract class Vehiculo {
         horaIngreso = LocalDateTime.now();
     }
 
+     @Override
+    public Object clone() throws CloneNotSupportedException {
+        var newInstance = (Vehiculo) super.clone();
+        newInstance.horaIngreso = LocalDateTime.now();
+        return newInstance;
+    }
 }
