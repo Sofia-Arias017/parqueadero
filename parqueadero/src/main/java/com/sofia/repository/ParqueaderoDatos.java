@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.sofia.model.Carro;
+import com.sofia.model.Sedan;
 import com.sofia.model.Vehiculo;
 
 public class ParqueaderoDatos {
@@ -28,9 +28,9 @@ public class ParqueaderoDatos {
         placas.add("ABC123");
         placas.add("ABC124");
         placas.add("ABC125");
-        mapaPlacas.put("ABC123", new Carro("ABC123", "2023", LocalDateTime.now().minusDays(2)));
-        mapaPlacas.put("ABC124", new Carro("ABC124", "2024", LocalDateTime.now().minusDays(1)));
-        mapaPlacas.put("ABC125", new Carro("ABC125", "2025", LocalDateTime.now().minusMinutes(325)));
+        mapaPlacas.put("ABC123", new Sedan("ABC123", "2023", LocalDateTime.now().minusDays(2)));
+        mapaPlacas.put("ABC124", new Sedan("ABC124", "2024", LocalDateTime.now().minusDays(1)));
+        mapaPlacas.put("ABC125", new Sedan("ABC125", "2025", LocalDateTime.now().minusMinutes(325)));
     }
 
     public void guardar(Vehiculo vehiculo) {

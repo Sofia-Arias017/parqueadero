@@ -3,15 +3,15 @@ package com.sofia.model.builder;
 import java.time.LocalDateTime;
 
 import com.sofia.enums.TipoVehiculo;
-import com.sofia.model.Carro;
+import com.sofia.model.Sedan;
 import com.sofia.model.Vehiculo;
 
-public class CarroBuilder implements VehiculoBuilder {
+public class SedanBuilder implements VehiculoBuilder {
     private String placa, modelo;
     private LocalDateTime horaIngreso;
     private TipoVehiculo tipo;
 
-    public CarroBuilder() {
+    public SedanBuilder() {
         placa = "NNN000";
         modelo = "2000";
         horaIngreso = LocalDateTime.now();
@@ -38,6 +38,6 @@ public class CarroBuilder implements VehiculoBuilder {
 
     @Override
     public Vehiculo build() {
-        return new Carro(placa, modelo, horaIngreso);
+        return new Sedan(placa, modelo, horaIngreso);
     }
 }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.sofia.enums.TipoVehiculo;
 import com.sofia.factory.VehiculoFactory;
-import com.sofia.model.Carro;
+import com.sofia.model.Sedan;
 import com.sofia.model.Vehiculo;
 import com.sofia.repository.ParqueaderoDatos;
 import com.sofia.service.GestorIngreso;
@@ -72,12 +72,12 @@ public class MenuConsole {
                 var tipo = mostrarCategorias();
                 try {
                     Vehiculo vehiculo = VehiculoFactory.crearVehiculo(tipo, placa, modelo);
-                    if (vehiculo instanceof Carro) {
-                        var carro = (Carro) vehiculo;
+                    if (vehiculo instanceof Sedan) {
+                        var carro = (Sedan) vehiculo;
                         var carro2 = carro.clone();
 
                         System.out.println(carro.getHoraIngreso().toString());
-                        System.out.println(((Carro) carro2).getHoraIngreso().toString());
+                        System.out.println(((Sedan) carro2).getHoraIngreso().toString());
                     }
                     // Carro carrito = new Carro(placa, modelo, LocalDateTime.now());
                     // pDatos == ParqueaderoDatos.getInstance()

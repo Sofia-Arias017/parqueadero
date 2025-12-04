@@ -8,6 +8,7 @@ public enum TipoVehiculo {
     CUATRIMOTO(4500, 250000),
     SEDAN(4500, 250000),
     SUV(4500, 250000),
+    COUPE(4500, 250000),
     CAMIONETA(4500, 250000);
 
     private final double tarifaPorTiempo;
@@ -18,6 +19,6 @@ public enum TipoVehiculo {
         this.tarifaPorTiempo = tarifaPorTiempo;
     }
 
-    public double getTarifaPorTiempo() {return tarifaPorTiempo;}
-    public double getTarifaMensual() {return tarifaPorMensual;}
+    public double getTarifaPorTiempo() { return tarifaPorTiempo; }
+    public double getTarifaMensual()   { return tarifaPorMensual; }
 }
