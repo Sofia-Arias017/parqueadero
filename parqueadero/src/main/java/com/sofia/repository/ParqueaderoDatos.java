@@ -1,54 +1,64 @@
 package com.sofia.repository;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
-import com.sofia.model.Sedan;
+import com.sofia.enums.TipoVehiculo;
+import com.sofia.factory.VehiculoFactory;
 import com.sofia.model.Vehiculo;
 
 public class ParqueaderoDatos {
 
     private static ParqueaderoDatos instancia;
 
-    private final Set<String> placas = new HashSet<>();
-
     private final Map<String, Vehiculo> mapaPlacas = new HashMap<>();
 
     public static ParqueaderoDatos getInstance() {
-        if(instancia == null) {
+        if (instancia == null) {
             instancia = new ParqueaderoDatos();
         }
-
         return instancia;
     }
 
     private ParqueaderoDatos() {
-        placas.add("ABC123");
-        placas.add("ABC124");
-        placas.add("ABC125");
-        mapaPlacas.put("ABC123", new Sedan("ABC123", "2023", LocalDateTime.now().minusDays(2)));
-        mapaPlacas.put("ABC124", new Sedan("ABC124", "2024", LocalDateTime.now().minusDays(1)));
-        mapaPlacas.put("ABC125", new Sedan("ABC125", "2025", LocalDateTime.now().minusMinutes(325)));
+        try {
+            mapaPlacas.put("ABC123", 
+                VehiculoFactory.crearVehiculo(TipoVehiculo.SEDAN, "ABC123", "2023")
+            );
+
+            mapaPlacas.put("ABC124", 
+                VehiculoFactory.crearVehiculo(TipoVehiculo.SEDAN, "ABC124", "2024")
+            );
+
+            mapaPlacas.put("ABC125", 
+                VehiculoFactory.crearVehiculo(TipoVehiculo.SEDAN, "ABC125", "2025")
+            );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void guardar(Vehiculo vehiculo) {
-        placas.add(vehiculo.getPlaca());
         mapaPlacas.put(vehiculo.getPlaca(), vehiculo);
     }
 
     public void registrarIngreso(String placa) {
         Vehiculo v = mapaPlacas.get(placa);
+
+        if (v == null) {
+            throw new IllegalArgumentException("La placa no existe: " + placa);
+        }
+
         v.registrarIngreso();
     }
 
     public boolean existePlaca(String placa) {
-        return placas.contains(placa);
+        return mapaPlacas.containsKey(placa);
     }
 
     public Vehiculo buscar(String placa) {
         return mapaPlacas.get(placa);
     }
-    
 }
