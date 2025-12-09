@@ -42,7 +42,7 @@ public class GestorSalida {
     private void mostrarRecibo(Vehiculo vehiculo, Duration duracion, long horasACobrar,
             double tarifaHora, double totalPagar) {
         System.out.println("--- RESUMEN DE SALIDA ---");
-        System.out.println("Vehículo: " + vehiculo.getPlaca() + " (" + vehiculo.getTipoVehiculo() + ")");
+        System.out.println("Vehiculo: " + vehiculo.getPlaca() + " (" + vehiculo.getTipoVehiculo() + ")");
         System.out.println("Tiempo total: " + formatDuration(duracion));
         System.out.println("Horas cobradas: " + horasACobrar);
         System.out.println("Tarifa x Hora: $" + tarifaHora);

@@ -42,7 +42,7 @@ public class ParqueaderoFacade {
                 Vehiculo vehiculo = VehiculoFactory.crearVehiculo(tipo, placa, modelo);
                 db.guardar(vehiculo);
 
-                return "Vehículo registrado exitosamente.";
+                return "Vehiculo registrado exitosamente.";
             } catch (Exception e) {
                 return e.getMessage();
             }
@@ -50,7 +50,7 @@ public class ParqueaderoFacade {
 
         // Conclusion => Si existe y No esta dentro del Parqueadero
         db.registrarIngreso(placa);
-        return "Vehículo registrado exitosamente.";
+        return "Vehiculo registrado exitosamente.";
     }
 
     public String procesarSalida(String placa) {
